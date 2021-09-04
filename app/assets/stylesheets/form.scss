@@ -1,0 +1,22 @@
+@import 'variables';
+
+.field {
+  border-bottom: 1px solid #9E9E9E;
+  margin-bottom: 10px;
+}
+
+.form {
+  border: none;
+  width: 90%;
+  margin: auto;
+  background-color: $base-bg-color;
+  margin-bottom: 10px;
+}
+
+.btn {
+  background: #FFE600;
+  width: 90%;
+  margin: auto;
+  height: 48px;
+  margin-top: 20px;
+}
