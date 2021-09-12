@@ -19,6 +19,18 @@ require("channels")
 require("trix")
 require("@rails/actiontext")
 
-document.addEventListener('DOMContentLoaded', () => {
-  window.alert('DOM LOADED')
-})
+import $ from 'jquery'
+import axios from 'axios'
+
+window.addEventListener('load', () => {
+  const uploader = document.querySelector('.uploader');
+  uploader.addEventListener('change', (e) => {
+    const file = uploader.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      const image = reader.result;
+      document.querySelector('.avatar').setAttribute('src', image);
+    }
+  });
+});
