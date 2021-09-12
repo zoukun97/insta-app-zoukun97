@@ -9,6 +9,13 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     %meta{:content => "width=devise-width, initial-scale=1.0", :name => "viewport"}/
   %body
+    %header.header
+      - if current_page?(root_path)
+        .header_left
+          = image_tag 'icon_back'
+        .header_right
+          .account_name
+            = current_user.account
     - if flash.present?
       .flash
         - flash.each do |key, value|
