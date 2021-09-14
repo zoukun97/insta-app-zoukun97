@@ -1,0 +1,23 @@
+.container
+  - @articles.each do |article|
+    .card
+      .card_header
+        .card_avatar
+          = image_tag article.image, class: 'avatar'
+        .card_account_name
+          = article.user.account
+      .card_image
+        = image_tag 'default.png'
+      .card_sub
+        .card_likes
+          = image_tag 'Vectorlike.png'
+        .card_comment_img
+          = image_tag 'Vectorcomment.png'
+      .card_like_persons
+        Jasmine and 12,000 other liked your post
+      .card_content
+        = article.content
+      .card_comment
+        Jmax_21  Summer holiday :3
+      .card_time
+        3 hours ago

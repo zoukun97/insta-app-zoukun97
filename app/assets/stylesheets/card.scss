@@ -1,0 +1,54 @@
+.card {
+  margin-bottom: 15px;
+
+  &_header {
+    display: flex;
+    align-items: center;
+  }
+
+  &_avatar {
+    padding-top: 6px;
+
+    img {
+      height: 44px;
+      width: 44px;
+    }
+  }
+
+  &_account_name {
+    margin-left: 10px;
+  }
+
+  &_image {
+
+    img {
+    width: 100%;
+    height: 343px;
+    }
+  }
+
+  &_sub {
+    display: flex;
+  }
+
+  &_comment_img {
+    margin-left: 10px;
+    
+    img {
+      padding-bottom: 2px;
+    }
+  }
+
+  &_like_persons {
+    font-weight: bold;
+    margin: 5px;
+  }
+
+  &_comment {
+    margin: 10px;
+  }
+
+  &_time {
+    opacity: 50%;
+  }
+}
