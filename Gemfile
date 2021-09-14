@@ -26,6 +26,7 @@ gem 'annotate'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'devise'
+gem 'faker'
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
