@@ -1,0 +1,15 @@
+.container
+  %ul
+    - @article.errors.full_messages.each do |message|
+      %li= message
+  .card_header
+    .card_avatar
+      = image_tag current_user.avatar_image, class: 'avatar'
+    .card_account_name
+      = current_user.account
+  = form_with(model: @article, local: true) do |f|
+    %div
+      = f.file_field :images, direct_upload: true, multiple: true
+    %div.field
+      = f.text_area :content, class: 'form'
+    = f.submit '+ Album', class: 'btn-primary'
