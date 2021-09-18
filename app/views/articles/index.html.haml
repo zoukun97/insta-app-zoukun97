@@ -1,0 +1,30 @@
+.container
+  - @articles.each do |article|
+    .card
+      .card_header
+        .card_avatar
+          = image_tag article.user.avatar_image, class: 'avatar'
+        .card_account_name
+          = article.user.account
+      .card_image
+        - if article.images.attached?
+          - article.images.each do |image|
+            = image_tag image
+        - else
+          = image_tag 'default.png'
+      .card_sub
+        .card_likes
+          = image_tag 'Vectorlike.png'
+        .card_comment_img
+          = image_tag 'Vectorcomment.png'
+      .card_like_persons
+        Jasmine and 12,000 other liked your post
+      .card_content
+        = article.content
+      .card_comment
+        Jmax_21  Summer holiday :3
+      .card_time
+        %time(datetime="#{article.created_at}")= time_ago_in_words(article.created_at)
+      .share
+        - if article.user == current_user
+          <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
