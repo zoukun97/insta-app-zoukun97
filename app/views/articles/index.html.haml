@@ -13,8 +13,15 @@
         - else
           = image_tag 'default.png'
       .card_sub
-        .card_likes
-          = image_tag 'Vectorlike.png'
+        - if current_user.has_liked?(article)
+          .card_likes
+            = link_to article_likes_path(article), data: {method: 'delete'} do
+              = image_tag 'Vectorlike.png'
+        - else
+          .card_likes
+            = link_to article_likes_path(article), data: {method: 'post'} do
+              = image_tag 'Vector.png'
+
         .card_comment_img
           = image_tag 'Vectorcomment.png'
       .card_like_persons
