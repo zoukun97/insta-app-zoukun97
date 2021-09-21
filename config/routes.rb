@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   root to: 'profiles#show'
   resource :profile, only: [:show, :edit, :update]
   resources :articles do
-    resource :likes, only: [:create, :destroy]
+    resource :likes, only: [:create, :destroy, :show]
   end
 end

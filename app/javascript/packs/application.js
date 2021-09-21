@@ -35,3 +35,12 @@ window.addEventListener('load', () => {
     }
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const dataset = $('#article-index').data()
+  const articleId = dataset.articleId
+  axios.get(`articles/${articleId}/likes`)
+    .then((response)=> {
+      console.log(response)
+    })
+})
