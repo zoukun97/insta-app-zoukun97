@@ -1,6 +1,6 @@
-.container#article-index{data: {article_id: @articles.ids}}
+.container
   - @articles.each do |article|
-    .card
+    .card#article-index{data: {article_id: article.id}}
       .card_header
         .card_avatar
           = image_tag article.user.avatar_image, class: 'avatar'
@@ -14,11 +14,9 @@
           = image_tag 'default.png'
       .card_sub
         .card_likes.hidden.active-heart
-          = link_to article_likes_path(article), data: {method: 'delete'} do
-            = image_tag 'Vectorlike.png'
+          = image_tag 'Vectorlike.png'
         .card_likes.hidden.inactive-heart
-          = link_to article_likes_path(article), data: {method: 'post'} do
-            = image_tag 'Vector.png'
+          = image_tag 'Vector.png'
         .card_comment_img
           = image_tag 'Vectorcomment.png'
       .card_like_persons
