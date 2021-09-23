@@ -36,16 +36,20 @@ window.addEventListener('load', () => {
   });
 });
 
+const handleHeartDisplay = (hasLiked) => {
+  if (hasLiked) {
+    $('.active-heart').removeClass('hidden')
+  } else {
+    $('.inactive-heart').removeClass('hidden')
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const dataset = $('#article-index').data()
   const articleId = dataset.articleId
   axios.get(`articles/${articleId}/likes`)
     .then((response)=> {
       const hasLiked = response.data.hasLiked
-      if (hasLiked) {
-        $('.active-heart').removeClass('hidden')
-      } else {
-        $('.inactive-heart').removeClass('hidden')
-      }
+      handleHeartDisplay(hasLiked)
     })
 })
