@@ -13,9 +13,9 @@
         - else
           = image_tag 'default.png'
       .card_sub
-        .card_likes.hidden.active-heart
+        .card_likes.hidden.active-heart{id: "#{article.id}"}
           = image_tag 'Vectorlike.png'
-        .card_likes.hidden.inactive-heart
+        .card_likes.hidden.inactive-heart{id: "#{article.id}"}
           = image_tag 'Vector.png'
         .card_comment_img
           = image_tag 'Vectorcomment.png'

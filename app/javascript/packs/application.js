@@ -56,20 +56,30 @@ document.addEventListener('DOMContentLoaded', () => {
       handleHeartDisplay(hasLiked)
     })
 
-  $('.inactive-heart').on('click', () => {
-    axios.post(`articles/${articleId}/likes`)
+  $('.inactive-heart').on('click', (e) => {
+    e.preventDefault();
+    const id = $(e.currentTarget).attr('id')
+    axios.post(`articles/${id}/likes`)
       .then((response) => {
-        console.log(response)
+        if (response.data.status === 'ok') {
+          $(`#${id}.active-heart`).removeClass('hidden')
+          $(`#${id}.inactive-heart`).addClass('hidden')          
+        }
       })
       .catch((e) => {
         window.alert('error')
         console.log(e)
       })
   })
-  $('.active-heart').on('click', () => {
-    axios.delete(`articles/${articleId}/likes`)
+  $('.active-heart').on('click', (e) => {
+    e.preventDefault();
+    const id = $(e.currentTarget).attr('id')
+    axios.delete(`articles/${id}/likes`)
       .then((response) => {
-        console.log(response)
+        if (response.data.status === 'ok') {
+          $(`#${id}.active-heart`).addClass('hidden')
+          $(`#${id}.inactive-heart`).removeClass('hidden')          
+        }
       })
       .catch((e) => {
         window.alert('error')
