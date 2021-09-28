@@ -1,6 +1,6 @@
 .container
   - @articles.each do |article|
-    .card
+    .card#article-index{data: {article_id: article.id}}
       .card_header
         .card_avatar
           = image_tag article.user.avatar_image, class: 'avatar'
@@ -13,8 +13,10 @@
         - else
           = image_tag 'default.png'
       .card_sub
-        .card_likes
+        .card_likes.hidden.active-heart{id: "#{article.id}"}
           = image_tag 'Vectorlike.png'
+        .card_likes.hidden.inactive-heart{id: "#{article.id}"}
+          = image_tag 'Vector.png'
         .card_comment_img
           = image_tag 'Vectorcomment.png'
       .card_like_persons

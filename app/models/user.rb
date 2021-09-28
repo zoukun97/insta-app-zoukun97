@@ -27,6 +27,7 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
   has_many :articles, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   def avatar_image
     if profile&.avatar&.attached?
@@ -35,4 +36,9 @@ class User < ApplicationRecord
       'Ellipse'
     end
   end
+
+  def has_liked?(article)
+    likes.exists?(article_id: article.id)
+  end
+
 end
