@@ -1,0 +1,9 @@
+.container
+  - @comments.each do |comment|
+    .comment
+      .comment_user
+        = image_tag comment.user.avatar_image
+      .comment_user_name
+        = comment.user.account
+    .comment_content
+      %p= comment.content

@@ -16,6 +16,14 @@
         .header_right
           .account_name
             = current_user.account
+      -# - if current_page?(controller: 'comments', action: 'index')
+      -#   .header_left
+      -#     = image_tag 'icon_back'
+      -#   .header_right
+      -#     = Comment
+      - if current_page?(controller: 'articles', action: 'index')
+        .header_left
+          = image_tag 'photo-camera'
     - if flash.present?
       .flash
         - flash.each do |key, value|

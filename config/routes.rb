@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'profiles#show'
   resource :profile, only: [:show, :edit, :update]
   resources :articles do
+    resources :comments, only: [:index, :new, :create]
     resource :likes, only: [:create, :destroy, :show]
   end
 end
