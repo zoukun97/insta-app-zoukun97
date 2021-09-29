@@ -10,20 +10,12 @@
     %meta{:content => "width=devise-width, initial-scale=1.0", :name => "viewport"}/
   %body
     %header.header
-      - if current_page?(root_path)
-        .header_left
-          = image_tag 'icon_back'
-        .header_right
-          .account_name
-            = current_user.account
-      -# - if current_page?(controller: 'comments', action: 'index')
+      = yield :header
+      -# - if current_page?(article_comments_path(@article))
       -#   .header_left
       -#     = image_tag 'icon_back'
       -#   .header_right
       -#     = Comment
-      - if current_page?(controller: 'articles', action: 'index')
-        .header_left
-          = image_tag 'photo-camera'
     - if flash.present?
       .flash
         - flash.each do |key, value|

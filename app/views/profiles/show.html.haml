@@ -1,3 +1,9 @@
+- content_for :header do
+  .header_left
+    = image_tag 'icon_back'
+  .header_right
+    .account_name
+      = current_user.account
 .container
   = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
     = f.label :image do

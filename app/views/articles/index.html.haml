@@ -1,3 +1,6 @@
+- content_for :header do
+  .header_left
+    = image_tag 'photo-camera'
 .container
   - @articles.each do |article|
     .card#article-index{data: {article_id: article.id}}
