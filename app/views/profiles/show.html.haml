@@ -10,3 +10,5 @@
       .profile_photo
         = image_tag current_user.avatar_image, class: 'avatar'
         = f.file_field :image, class: 'uploader', style: 'display:none'
+
+= javascript_pack_tag 'profile'
