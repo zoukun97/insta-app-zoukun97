@@ -16,8 +16,9 @@ class CommentsController < ApplicationController
   end
 
   def index
-    id = params[:article_id]
-    @comments = Comment.where(article_id: id)
+    article = Article.find(params[:article_id])
+    comments = article.comments
+    render json: comments
   end
 
   private
