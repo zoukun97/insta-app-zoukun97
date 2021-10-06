@@ -16,13 +16,11 @@ class CommentsController < ApplicationController
   end
 
   def index
-    article = Article.find(params[:article_id])
-    comments = article.comments
-    render json: comments
+    @article = Article.find(params[:article_id])
   end
 
   private
   def comment_params
-      params.require(:comment).permit(:content, :article_id, :user_id).merge(user_id: current_user.id, article_id: params[:article_id])
+    params.require(:comment).permit(:content, :article_id, :user_id).merge(user_id: current_user.id, article_id: params[:article_id])
   end
 end

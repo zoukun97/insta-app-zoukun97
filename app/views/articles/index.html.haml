@@ -21,7 +21,7 @@
         .card_likes.hidden.inactive-heart{id: "#{article.id}"}
           = image_tag 'Vector.png'
         .card_comment_img
-          = link_to new_article_comment_path(article) do
+          = link_to article_comments_path(article) do
             = image_tag 'Vectorcomment.png'
       .card_like_persons
         Jasmine and 12,000 other liked your post
