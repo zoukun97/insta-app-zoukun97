@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const comments = response.data
       comments.forEach((comment) => {
         $('.comments-container').append(
-          `<div class="article_comment"><p>${comment.content}</p></div>`
+          `<div class="comment_user_name"><p>${comment.user.account}</p></div>`
+          `<div class="comment_content"><p>${comment.content}</p></div>`
         )
       })
     })
