@@ -20,3 +20,18 @@
   height: 48px;
   margin-top: 20px;
 }
+
+.sm {
+  min-height: 50px;
+}
+
+.btn-secondary {
+  background-color: #61bef5;
+  width: 200px;
+
+  p {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+  }
+}
