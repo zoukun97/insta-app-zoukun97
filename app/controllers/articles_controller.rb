@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
   def show
     article = Article.find(params[:id])
     comments = article.comments
-    render json: comments
+    render json: comments, include: { user: [:profile] }
   end
 
   def new

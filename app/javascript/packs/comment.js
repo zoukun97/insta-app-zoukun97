@@ -7,7 +7,7 @@ axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 const appendComment = (comment) => {
   $('.comments-container').append(
     `<div class="comment">
-      <div class="comment_user"></div>
+      <div class="comment_user"><img src="${comment.user.avatar_comment_image}"></div>
       <div class="comment_user_name"><p>${comment.user.account}</p></div>
     </div>
     <div class="comment_content"><p>${comment.content}</p></div>`
