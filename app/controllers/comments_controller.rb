@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def new
     article = Article.find(params[:article_id])
     @comment = article.comments.build
