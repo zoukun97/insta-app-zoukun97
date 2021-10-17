@@ -1,3 +1,8 @@
+- content_for :header do
+  .header_left
+    = image_tag 'icon_back'
+  .header_right
+    = Comment
 .container#comment-index{data: {article_id: @article.id}}
   .comments-container
   .btn-secondary.comment-form
