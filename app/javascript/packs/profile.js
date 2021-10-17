@@ -4,7 +4,7 @@ import { csrfToken } from 'rails-ujs'
 
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const uploader = document.querySelector('.uploader');
   if (!uploader){ return false;}
   uploader.addEventListener('change', (e) => {
