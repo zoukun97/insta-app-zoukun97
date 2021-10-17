@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def show
     article = Article.find(params[:article_id])

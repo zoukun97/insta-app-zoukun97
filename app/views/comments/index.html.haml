@@ -1,0 +1,15 @@
+- content_for :header do
+  .header_left
+    = image_tag 'icon_back'
+  .header_right
+    = Comment
+.container#comment-index{data: {article_id: @article.id}}
+  .comments-container
+  .btn-secondary.comment-form
+    %p コメントを追加
+  .comment-text-area.hidden
+    = text_area_tag :comment_content, '', class: 'sm'
+    .btn-secondary.add-comment-btn
+      %p コメントを追加
+
+= javascript_pack_tag 'comment'

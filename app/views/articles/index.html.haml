@@ -1,3 +1,6 @@
+- content_for :header do
+  .header_left
+    = image_tag 'photo-camera'
 .container
   - @articles.each do |article|
     .card#article-index{data: {article_id: article.id}}
@@ -18,7 +21,8 @@
         .card_likes.hidden.inactive-heart{id: "#{article.id}"}
           = image_tag 'Vector.png'
         .card_comment_img
-          = image_tag 'Vectorcomment.png'
+          = link_to article_comments_path(article),data: {"turbolinks" => false} do
+            = image_tag 'Vectorcomment.png'
       .card_like_persons
         Jasmine and 12,000 other liked your post
       .card_content
@@ -30,3 +34,5 @@
       .share
         - if article.user == current_user
           <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+= javascript_pack_tag 'article'
