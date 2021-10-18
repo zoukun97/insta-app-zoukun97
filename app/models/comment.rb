@@ -23,6 +23,8 @@ class Comment < ApplicationRecord
 
   private
   def send_email
-    CommentMailer.new_comment(article.user, user).deliver_later
+    if content.include?("@#{article.user.account}")
+      CommentMailer.new_comment(article.user, user).deliver_later
+    end
   end
 end
