@@ -18,4 +18,13 @@ class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :article
   validates :content, presence: true
+
+  after_create :send_email
+
+  private
+  def send_email
+    if content.include?("@#{article.user.account}")
+      CommentMailer.new_comment(article.user, user).deliver_later
+    end
+  end
 end
