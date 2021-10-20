@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'profiles#show'
   resource :profile, only: [:show, :edit, :update]
-  resources :accounts, only: [:show]
+
+  resources :accounts, only: [:show] do
+    resources :follows
+  end
+
   resources :articles do
     resources :comments, only: [:index, :new, :create]
     resource :likes, only: [:create, :destroy, :show]
