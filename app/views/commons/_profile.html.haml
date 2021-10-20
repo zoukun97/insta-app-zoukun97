@@ -1,0 +1,15 @@
+- content_for :header do
+  .header_left
+    = image_tag 'icon_back'
+  .header_right
+    .account_name
+      = user.account
+.container
+  = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
+    = f.label :image do
+      .profile_photo
+        = image_tag user.avatar_image, class: 'avatar'
+        - if current_page?(root_path)
+          = f.file_field :image, class: 'uploader', style: 'display:none'
+
+= javascript_pack_tag 'profile'
