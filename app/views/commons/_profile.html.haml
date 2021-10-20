@@ -8,7 +8,7 @@
     - if current_page?(account_path(user.id))
       .follow_btn
         - if current_user&.has_followed?(user)
-          %p Unfollow
+          = link_to 'Unfollow',account_unfollows_path(user), data: {method: 'post'}
         - else
           = link_to 'Follow',account_follows_path(user), data: {method: 'post'}
 .container
