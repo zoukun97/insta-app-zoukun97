@@ -24,7 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
   $('.follow').on('click', () => {
     axios.post(`/accounts/${accountId}/follows`)
       .then((response) => {
-        console.log(response)
+        if (response.data.status === 'ok'){
+          $('.unfollow').removeClass('hidden')
+          $('.follow').addClass('hidden')
+        }
       })
       .catch((e) => {
         window.alert('error')
@@ -35,7 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
   $('.unfollow').on('click', () => {
     axios.post(`/accounts/${accountId}/unfollows`)
       .then((response) => {
-        console.log(response)
+        if (response.data.status === 'ok'){
+          $('.follow').removeClass('hidden')
+          $('.unfollow').addClass('hidden')
+        }
       })
       .catch((e) => {
         window.alert('error')
