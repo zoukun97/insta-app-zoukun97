@@ -6,7 +6,7 @@
     .card#article-index{data: {article_id: article.id}}
       .card_header
         .card_avatar
-          = link_to account_path(article.user) do
+          = link_to account_path(article.user),data: {"turbolinks" => false} do
             = image_tag article.user.avatar_image, class: 'avatar'
         .card_account_name
           = article.user.account
