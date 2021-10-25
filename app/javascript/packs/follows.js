@@ -20,4 +20,26 @@ document.addEventListener('DOMContentLoaded', () => {
       const hasFollowed = response.data.hasFollowed
       handleFollowDisplay(hasFollowed)
     })
+
+  $('.follow').on('click', () => {
+    axios.post(`/accounts/${accountId}/follows`)
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((e) => {
+        window.alert('error')
+        console.log(e)
+      })
+  })
+
+  $('.unfollow').on('click', () => {
+    axios.post(`/accounts/${accountId}/unfollows`)
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((e) => {
+        window.alert('error')
+        console.log(e)
+      })
+  })
 })
