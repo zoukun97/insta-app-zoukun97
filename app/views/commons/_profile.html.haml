@@ -4,12 +4,12 @@
   .header_center
     .account_name
       = user.account
-  .header_right
+  .header_right#accounts-show{data: {id: user.id}}
     - if current_page?(account_path(user.id))
       .follow_btn
-        - if current_user&.has_followed?(user)
+        .unfollow.hidden
           = link_to 'Unfollow',account_unfollows_path(user), data: {method: 'post'}
-        - else
+        .follow.hidden
           = link_to 'Follow',account_follows_path(user), data: {method: 'post'}
 .container
   = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
@@ -20,3 +20,4 @@
           = f.file_field :image, class: 'uploader', style: 'display:none'
 
 = javascript_pack_tag 'profile'
+= javascript_pack_tag 'follows'
