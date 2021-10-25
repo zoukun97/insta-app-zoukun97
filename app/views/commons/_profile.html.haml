@@ -20,4 +20,5 @@
           = f.file_field :image, class: 'uploader', style: 'display:none'
 
 = javascript_pack_tag 'profile'
-= javascript_pack_tag 'follows'
+- if current_page?(account_path(user.id))
+  = javascript_pack_tag 'follows'
