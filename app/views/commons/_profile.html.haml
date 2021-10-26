@@ -18,6 +18,16 @@
         = image_tag user.avatar_image, class: 'avatar'
         - if current_page?(root_path)
           = f.file_field :image, class: 'uploader', style: 'display:none'
+  .count
+    .count_item
+      %span 44
+      %p posts
+    .count_item
+      %span 100
+      %p followers
+    .count_item
+      %span 60
+      %p following
 
 = javascript_pack_tag 'profile'
 - if current_page?(account_path(user.id))
