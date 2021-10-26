@@ -20,13 +20,13 @@
           = f.file_field :image, class: 'uploader', style: 'display:none'
   .count
     .count_item
-      %span 44
+      %span= user.post_count
       %p posts
     .count_item
-      %span 100
+      %span= user.follower_count
       %p followers
     .count_item
-      %span 60
+      %span= user.following_count 
       %p following
 
 = javascript_pack_tag 'profile'

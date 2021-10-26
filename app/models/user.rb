@@ -63,6 +63,18 @@ class User < ApplicationRecord
     following_relationships.exists?(following_id: user.id)
   end
 
+  def post_count
+    articles.count
+  end
+
+  def follower_count
+    followers.count
+  end
+
+  def following_count
+    followings.count
+  end
+
   private
   def get_user_id(user)
     if user.is_a?(User)
