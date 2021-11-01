@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .then((response) => {
       const hasFollowed = response.data.hasFollowed
       const follower = response.data.follower
-      $('.follower_count').append(`<span>${follower}</span>`)
+      $('.follower_count').text(follower)
       handleFollowDisplay(hasFollowed)
     })
 
