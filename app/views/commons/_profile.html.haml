@@ -22,8 +22,10 @@
     .count_item
       %span= user.post_count
       %p posts
-    .count_item
-      %span= user.follower_count
+    .count_item 
+      .follower_count
+      - if current_page?(root_path)
+        %span= user.follower_count
       %p followers
     .count_item
       %span= user.following_count 
