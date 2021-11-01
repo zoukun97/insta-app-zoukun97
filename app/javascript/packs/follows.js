@@ -26,9 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
   $('.follow').on('click', () => {
     axios.post(`/accounts/${accountId}/follows`)
       .then((response) => {
+        const follower = response.data.follower
         if (response.data.status === 'ok'){
           $('.unfollow').removeClass('hidden')
           $('.follow').addClass('hidden')
+          $('.follower_count').text(follower)
         }
       })
       .catch((e) => {
@@ -40,9 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
   $('.unfollow').on('click', () => {
     axios.post(`/accounts/${accountId}/unfollows`)
       .then((response) => {
+        const follower = response.data.follower
         if (response.data.status === 'ok'){
           $('.follow').removeClass('hidden')
           $('.unfollow').addClass('hidden')
+          $('.follower_count').text(follower)
         }
       })
       .catch((e) => {
