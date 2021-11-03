@@ -24,15 +24,17 @@
     .count_item
       %span= user.post_count
       %p posts
-    .count_item 
-      %span
-        .follower_count
-      - if current_page?(root_path)
-        %span= user.follower_count
-      %p followers
-    .count_item
-      %span= user.following_count 
-      %p following
+    = link_to account_followers_path(user) do
+      .count_item 
+        %span
+          .follower_count
+        - if current_page?(root_path)
+          %span= user.follower_count
+        %p followers
+    = link_to account_followings_path(user) do
+      .count_item
+        %span= user.following_count 
+        %p following
 
 = javascript_pack_tag 'profile'
 - if current_page?(account_path(user.id))
