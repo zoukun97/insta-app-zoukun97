@@ -1,0 +1,12 @@
+- content_for :header do
+  .header_left
+    = image_tag 'icon_back'
+  .header_right
+    Followers
+.container
+  - @users.each do |user|
+    .follows
+      .follows_user
+        = image_tag user.avatar_image
+      .follows_user_name 
+        = user.account

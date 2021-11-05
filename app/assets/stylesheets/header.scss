@@ -1,6 +1,8 @@
 .header {
   display: flex;
   height: 30px;
+  justify-content: space-between;
+  align-items: center;
 
   &_left {
 
@@ -9,9 +11,16 @@
     }
   }
 
-  &_right {
+  &_center {
     font-size: 24px;
-    margin: auto;
-    padding-right: 20px;
+  }
+
+  &_right {
+    font-size: 20px;
+    opacity: 0.6;
+
+    p:hover {
+      opacity: 0.5;
+    }
   }
 }
