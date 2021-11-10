@@ -3,7 +3,7 @@
     = image_tag 'photo-camera'
 .container
   - @articles.each do |article|
-    .card#article-index{data: {article_id: article.id}}
+    .card
       .card_header
         .card_avatar
           = link_to account_path(article.user),data: {"turbolinks" => false} do
@@ -17,9 +17,9 @@
         - else
           = image_tag 'default.png'
       .card_sub
-        .card_likes.hidden.active-heart{id: "#{article.id}"}
+        .card_likes.hidden.active-heart{id: "#{article.id}", data: {article_id: article.id}}
           = image_tag 'Vectorlike.png'
-        .card_likes.hidden.inactive-heart{id: "#{article.id}"}
+        .card_likes.hidden.inactive-heart{id: "#{article.id}", data: {article_id: article.id}}
           = image_tag 'Vector.png'
         .card_comment_img
           = link_to article_comments_path(article),data: {"turbolinks" => false} do

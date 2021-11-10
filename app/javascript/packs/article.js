@@ -4,22 +4,36 @@ import { csrfToken } from 'rails-ujs'
 
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 
-const handleHeartDisplay = (hasLiked) => {
-  if (hasLiked) {
-    $('.active-heart').removeClass('hidden')
-  } else {
-    $('.inactive-heart').removeClass('hidden')
-  }
-}
-
 document.addEventListener('DOMContentLoaded', () => {
-  const dataset = $('#article-index').data()
-  const articleId = dataset.articleId
-  axios.get(`articles/${articleId}/likes`)
-    .then((response)=> {
-      const hasLiked = response.data.hasLiked
-      handleHeartDisplay(hasLiked)
-    })
+  $('.inactive-heart').each(function (index, element) {
+    // テンプレートで記述したカスタムデータを取得
+    const dataset = $(element).data()
+    // カスタムデータからチームIDを取得
+    const articleId = dataset.articleId
+    // カスタムデータを入れてGETリクエストを送る
+    axios.get(`articles/${articleId}/likes`)
+      // リクエストを送ったらレスポンスが返ってくる
+      .then((response) => {
+        // responseでrenderされたlikeの状態を取得(true or false)
+        const hasLiked = response.data.hasLiked
+        // falseであればいいねされていない => 白い星を表示するために、'hidden'を取り外す
+        if ( hasLiked === false ) {
+          $(element).removeClass('hidden')
+        } 
+      })
+  })
+
+  $('.active-heart').each(function (index, element) {
+    const dataset = $(element).data()
+    const articleId = dataset.articleId
+    axios.get(`articles/${articleId}/likes`)
+      .then((response) => {
+        const hasLiked = response.data.hasLiked
+        if ( hasLiked === true ) {
+          $(element).removeClass('hidden')
+        } 
+      })
+  })
 
   $('.inactive-heart').on('click', (e) => {
     e.preventDefault();
